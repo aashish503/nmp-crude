@@ -1,0 +1,28 @@
+<h1>
+    <div class="d-flex justify-content-center fs-1 mt-5">Categary And Product</div>
+  </h1>
+  <div class="row justify-content-center">
+    <div class="col-md-4 register-employee">
+  
+      <div class="card-body">
+        <form [formGroup]="categaryForm" (ngSubmit)="onSubmit()">
+          <h3>Categary</h3>
+          <div class="form-group">
+            <!-- <label for="inputName">Categary</label> -->
+            <input class="form-control" type="text" formControlName="categary"
+              [ngClass]="categary?.invalid && (categary?.dirty || categary?.touched)?'form-control is-invalid':'form-control'" />
+            <!-- error -->
+            <div *ngIf="categary?.invalid && (categary?.dirty || categary?.touched)">
+              <span *ngIf="categary?.errors?.['required']" class="text-danger">Categary is required.</span>
+              <span *ngIf="categary?.errors?.['pattern']" class="text-danger">Invalid format.</span>
+            </div>
+          </div>
+  
+          <button type="button" class="btn btn-primary mx-2" routerLink="/create-employee">Previous</button>
+          <button type="submit" class="btn btn-success mx-2">Submit</button>
+          
+        </form>
+      </div>
+    </div>
+  
+  </div>

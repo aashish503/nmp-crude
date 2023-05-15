@@ -1,0 +1,27 @@
+<h1>
+  <div class="d-flex justify-content-center fs-1 mt-5">Categary And Product</div>
+</h1>
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+
+    <div class="card-body">
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <h3>Product</h3>
+        <div class="form-group">
+          <!-- <label for="inputName">Name</label> -->
+          <input class="form-control" type="text" formControlName="name"
+            [ngClass]="name?.invalid && (name?.dirty || name?.touched)?'form-control is-invalid':'form-control'" />
+          <!-- error -->
+          <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+            <span *ngIf="name?.errors?.['required']" class="text-danger">Name is required.</span>
+            <span *ngIf="name?.errors?.['pattern']" class="text-danger">Invalid format.</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success mx-2">Next</button>
+        
+      </form>
+    </div>
+  </div>
+
+</div>
